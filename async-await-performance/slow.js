@@ -1,12 +1,20 @@
 const translate = require('@vitalets/google-translate-api');
 const fs = require('fs');
 
-const languages = ['en', 'si', 'ta', 'zh-CN', 'es', 'ru', 'ar', 'hi', 'fr', 'de', 'it', 'ja', 'ko', 'asdf'];
+// Language codes to translated
+const languages = ['en', 'si', 'ta', 'zh-CN', 'es', 'ru', 'ar', 'hi', 'fr', 'de', 'it', 'ja', 'ko'];
 
-const translateTo = async () => {
+/**
+ * Translate string to other languages and write output to file
+ *
+ * @paragraph : String
+ */
+const translateTo = async (paragraph) => {
   for (const language of languages) {
     try {
-      const { text } = await translate('good morning', { from: 'en', to: language });
+      // Translated string return in 'text' attribute
+      const { text } = await translate(paragraph, { from: 'en', to: language });
+      
       fs.appendFile('message.txt', `${language} ===> ${text}\n`, (err) => {
         if (err) throw err;
       })
@@ -16,4 +24,4 @@ const translateTo = async () => {
   } 
 }
 
-translateTo();
+translateTo('good morning');
