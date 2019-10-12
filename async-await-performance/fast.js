@@ -2,7 +2,7 @@ const translate = require('@vitalets/google-translate-api');
 const fs = require('fs');
 
 // Language codes to translated
-const languages = ['en', 'si', 'ta', 'zh-CN', 'es', 'ru', 'ar', 'hi', 'fr', 'de', 'it', 'ja', 'ko', 'asdf'];
+const languages = ['en', 'si', 'ta', 'zh-CN', 'es', 'ru', 'ar', 'hi', 'fr', 'de', 'it', 'ja', 'ko'];
 
 /**
  * Translate string to other languages and write output to file
